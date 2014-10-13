@@ -1,0 +1,276 @@
+/* Author -- Anjana S */
+
+/*pacckage amrita
+1.person.java
+
+package amrita;
+import java.util.*;
+*/
+/**
+ *
+ * @author u4cse12005
+ */
+public class Person {
+     private int id;
+     private String name;
+    
+    
+     
+     public void entry(){
+     Scanner in = new Scanner(System.in);
+      Scanner ins = new Scanner(System.in);
+     System.out.println("Enter the Id");
+     id = in.nextInt();
+     System.out.println("Enter the name");
+     name = ins.nextLine();
+     }
+    @Override
+     public String toString(){
+       
+     
+           return "The id is"+id +"The name is "+name;
+           
+           
+     
+     }
+     
+}
+
+
+2.package amrita.employee
+
+1.Non-Teaching .java
+
+package amrita.employee;
+
+import amrita.Person;
+import java.util.*;
+
+/**
+ *
+ * @author u4cse12005
+ */
+public class NonTeaching extends Person {
+    
+    private int salary;
+    private String depat;
+    
+   
+    
+    public void nonteach(){
+       
+        System.out.println("Enter the non teaching staff details");
+        super.entry();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter the salary");
+        salary = in.nextInt();
+        Scanner ins = new Scanner(System.in);
+        System.out.println("Enter the dept name");
+        depat = ins.nextLine();
+                                                                                       
+    }
+    
+    public String toString(){
+        
+        return "THe salary is "+salary+"The dept is" +depat;
+    }
+    
+    public void  print(){
+        
+        System.out.println("The Non teaching staff details are ..");
+        
+        System.out.println(super.toString());
+        System.out.println(toString());
+        System.out.println();
+        
+    }
+        
+      
+        
+    
+    
+    }
+
+2.Teaching.Java
+
+
+package amrita.employee;
+
+import Interest.Hobby;
+import amrita.Person;
+import java.util.*;
+
+/**
+ *
+ * @author u4cse12005
+ */
+ public class Teaching extends Person implements Hobby {
+    
+    private String designation;
+    private String subject,good,hoby;
+    
+        public void  teach(){
+         Scanner in = new Scanner(System.in);
+         System.out.println("Enter the teacher details");
+         super.entry();
+         System.out.println("Enter the designation");
+         designation = in.nextLine();
+         System.out.println("Enter the Subject");
+         subject = in.nextLine();
+         
+    }
+    @Override
+    public String toString(){
+    
+        return "The designation is"+designation+"The Subject is"+subject;
+    }
+    
+    
+   @Override
+     public void myfav(){
+     
+         Scanner in = new Scanner(System.in);
+         System.out.println("Enter your Hobby");
+          hoby = in.nextLine();
+         
+     } 
+    @Override
+     public void goodat(){
+     
+         Scanner in = new Scanner(System.in);
+         System.out.println("good at");
+         good = in.nextLine();
+         
+     
+     }
+    
+    
+    public void print(){
+      
+        System.out.println("The Teacher details are..");
+        System.out.println(super.toString());
+        System.out.println(toString());
+        System.out.println("The talent is" +good);
+        System.out.println("The hobby is" +hoby);
+        System.out.println();
+    
+    }
+}
+
+3.Package amrita.student
+
+1.Student.java
+
+package amrita.student;
+
+import Interest.Hobby;
+import Interest.Sport;
+import amrita.Person;
+import java.util.*;
+
+/**
+ *
+ * @author u4cse12005
+ */
+public class Student extends Person implements Sport , Hobby {
+    private int sem;
+    private String course;
+    private String hoby,good,sports;
+    
+     
+    
+     public void  stud(){
+         Scanner in = new Scanner(System.in);
+         System.out.println("Enter the sem");
+         sem = in.nextInt();
+         System.out.println("Enter the Course");
+          Scanner ins = new Scanner(System.in);
+         course = ins.nextLine();
+     }
+  @Override   
+       public String toString(){
+           
+           return "The sem is "+sem+"and the course is"+course ;
+       }
+     
+     @Override
+     public void ilike(){
+         Scanner in = new Scanner(System.in);
+         System.out.println("Enter the sport you like");
+         sports = in.nextLine();
+          
+     }
+     
+      @Override
+     public void myfav(){
+     
+         Scanner in = new Scanner(System.in);
+         System.out.println("Enter your Hobby");
+          hoby = in.nextLine();
+         
+     } 
+      @Override
+     public void goodat(){
+     
+         Scanner in = new Scanner(System.in);
+         System.out.println("you are good at");
+         good = in.nextLine();
+         
+     
+     }
+     
+     public void print(){
+     
+         System.out.println("The Student details are");
+         
+         System.out.println(super.toString());
+         
+         System.out.println("THe sport is "+ sports);
+         System.out.println("THe student hobby is" + hoby);
+         System.out.println("The Student talent is" + good);
+         System.out.println(toString());
+         System.out.println();
+     
+     
+     
+     }
+    }
+    
+    
+
+4. Package Mypack
+
+1.Main.java
+
+
+package Mypack;
+import java.util.*;
+import amrita.employee.NonTeaching;
+import amrita.employee.Teaching;
+import amrita.student.Student;
+
+/**
+ *
+ * @author u4cse12005
+ */
+public class Main {
+    
+    public static void main(String [] args){
+    
+        Student st = new Student();
+        Teaching te = new Teaching();
+        NonTeaching non = new  NonTeaching();
+        st.entry();
+        st.ilike();
+        st.myfav();
+        st.goodat();
+        st.stud();
+        st.print();
+        te.teach();
+        te.goodat();
+        te.myfav();
+        te.print();
+        non.nonteach();
+        non.print();
+        
+    }
