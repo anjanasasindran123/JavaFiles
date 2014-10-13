@@ -1,0 +1,149 @@
+/* Author -- Anjana S
+Packages
+1.Package 1                 ----- interface---InterfaceEvaluationParameters
+2. Package 2       ------interface----InterfaceEvaluation
+3. package 3     -------class---Scholar.
+4. Demo.java
+
+
+
+Package 1
+*/
+package Package1;
+
+/**
+ *
+ * @author u4cse12005
+ */
+public interface InterfaceEvaluationParameters {
+    
+    int homeassignments = 15;
+    int classtests = 15;
+    int periodicals = 30;
+    int endexam = 40;
+            
+    
+}
+
+
+Package 2
+
+package Package2;
+
+import Package1.InterfaceEvaluationParameters;
+
+/**
+ *
+ * @author u4cse12005
+ */
+public interface InterfaceEvaluation extends InterfaceEvaluationParameters {
+    
+    public double evaluate();
+    
+    
+    
+}
+
+Package3
+
+package Package3;
+
+import Package2.InterfaceEvaluation;
+
+/**
+ *
+ * @author u4cse12005
+ */
+public class Scholar implements InterfaceEvaluation {
+    String name;
+    int id;
+    int markshomeassign;
+    int testpapers;
+    int periomarks;
+    int endmarks;
+    int maxmarks = 50;
+
+ @Override   
+ public double evaluate(){
+     double totalassign = markshomeassign*homeassignments;
+     double totaltest = testpapers*classtests;
+     double totalend = endmarks*endexam;
+     double totalperio = periomarks*periodicals;
+     return(totalassign+totaltest+totalend+totalperio)/100;
+    
+ }
+ public void setname(String sname){
+  
+     name = sname;
+     
+ }
+ public void setid(int Id){
+ 
+     id = Id;
+ }
+ 
+ public void entermarks(int ta, int tt,int te, int tp){
+ 
+     markshomeassign = ta;
+     testpapers = tt;
+     periomarks = tp;
+     endmarks = te;
+     
+ }
+ 
+ 
+ 
+}
+
+
+Demo.java
+
+
+package demo;
+
+import Package3.Scholar;
+
+/**
+ *
+ * @author u4cse12005
+ */
+public class Demo {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        Scholar sc1 = new Scholar();
+        Scholar sc2 = new Scholar();
+        Scholar sc3 = new Scholar();
+        Scholar sc4 = new Scholar();
+        sc1.setname("subash");
+        sc2.setname("Pug");
+        sc3.setname("Mangu");
+        sc4.setname("Kunji");
+        
+        sc1.setid(123);
+        sc2.setid(456);
+        sc3.setid(789);
+        sc4.setid(321);
+        
+        sc1.entermarks(12, 22, 32, 34);
+        sc2.entermarks(34, 32, 21, 43);
+        sc3.entermarks(23, 34, 45, 23);
+        sc4.entermarks(23, 30, 40, 23);
+        
+        double Total =  sc1.evaluate();
+        System.out.println("The total  marks of subash" + Total);
+        Total = sc2.evaluate();
+        System.out.println("The total marks of pug" + Total);
+         Total = sc3.evaluate();
+         System.out.println("The total marks of  mangu" + Total);
+         Total = sc4.evaluate();
+          System.out.println("The total marks of  kunji " + Total);
+        
+    }
+}
+
+
