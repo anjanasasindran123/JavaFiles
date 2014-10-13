@@ -1,0 +1,40 @@
+/*2.Given a number n , Write a program to 
+a. print the digits 
+b. sum of the digits 
+c. reverse the no. 
+d. check if palindrome 
+*/
+
+import java.util.Scanner; 
+public class number{ 
+  public static void main(String arg[]){ 
+ 
+    Scanner in = new Scanner(System.in); 
+
+     System.out.println("Enter the number"); 
+
+     int num = in.nextInt(); 
+      int count=0; 
+       int sum=0; 
+       int rev=0; 
+
+       while(num>0){ 
+
+        int  digit = num%10; 
+         
+        
+         
+         sum=sum+digit; 
+         rev = rev*10; 
+         rev=rev+digit; 
+           num = num/10; 
+           count++; 
+         
+         } 
+         System.out.println("the no of digits are" +count); 
+         System.out.println("The sum is" +sum); 
+         System.out.println("The reverse is" +rev); 
+
+} 
+}
+
