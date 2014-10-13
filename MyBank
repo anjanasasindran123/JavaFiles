@@ -1,0 +1,161 @@
+
+
+/*Author -- Anjana S
+Package – 2 (BankAccount and Mybank)
+
+BankAccount -  
+
+Includes 3 .java classes
+1. Account.java
+2. SavingsAccount.java—inherits from Account
+3. CheckingAccount.java---inherits from Account
+
+MyBank 
+
+Includes the main file---Mybank.java
+
+
+Account.java*/
+
+
+package BankAccount;
+
+
+/**
+ *
+ * @author  Anjana S
+ */
+public class Account {
+    double accountbalance;
+    public Account(){} 
+    public Account( double initial_balance){
+       if(initial_balance<0.0){
+           System.out.println("invalid initia amount");
+           accountbalance = 0;
+       }
+       else{
+           accountbalance = initial_balance;
+       }
+    }
+       
+       public void credit( double creamount) {
+           
+             accountbalance = accountbalance+creamount;
+       }
+       
+       public boolean debit( double debamount) {
+           if(debamount>accountbalance){
+               System.out.println("THe amount exceeded");
+               return false;
+           }
+           else{
+               accountbalance = accountbalance-debamount;
+               return true;
+           }
+           
+       
+       }
+       
+       public double  getBalance(){
+           return (accountbalance);
+       }
+           
+           
+ }
+
+SavingsAccount.Java
+
+
+package BankAccount;
+
+/**
+ *
+ * @author u4cse12005
+ */
+public class SavingsAccount extends Account {
+    double intrest_rate;
+    public SavingsAccount(){}
+    public SavingsAccount(double initial_balance,double rate){
+     
+        super(initial_balance);
+        intrest_rate = rate;
+        
+    }
+    public double  calcIntrest(){
+    
+        return ((intrest_rate/100)* getBalance());
+        
+    
+    }
+    
+
+    
+
+}
+
+
+CheckingAccount.java
+
+
+package BankAccount;
+
+/**
+ *
+ * @author u4cse12005
+ */
+public class CheckingAccount extends Account {
+    double feetrans;
+    public CheckingAccount(){}
+    public CheckingAccount(double initial_balance,double fee){
+    
+        super(initial_balance);
+        feetrans = fee;
+        
+    }
+    @Override
+    
+    public void credit(double creamount){
+        super.credit(creamount);
+        super.debit(feetrans);
+        
+    }
+    
+    @Override
+    public boolean debit (double debamount){
+    
+        if(super.debit(debamount)){
+            if(super.debit(feetrans)){
+                return true;
+            }
+            return false;
+        }
+        return false;
+            }
+        }
+    
+Main---Mybank.java
+
+
+package mybank;
+import BankAccount.CheckingAccount;
+
+/**
+ *
+ * @author u4cse12005
+ */
+public class Mybank {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+      CheckingAccount che = new CheckingAccount(2000,4);
+      System.out.println("THe current balance is"+che.getBalance());
+      che.credit(150);
+      System.out.println("THe current balance after crediting is"+che.getBalance());
+      che.debit(150);
+      System.out.println("The current balance after debiting is " +che.getBalance());
+      
+    }
+}
