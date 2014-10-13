@@ -1,0 +1,48 @@
+/*Develop a java program that generates password for a student using his initials, first name and age.
+a. Eg: Isaac Jackson Edwin ije_saac_19 
+*/
+
+import java.util.Scanner; 
+public class cipher { 
+	public static void main(String args[]){ 
+		System.out.println("Enter the string to encrypt: "); 
+		Scanner in = new Scanner(System.in); 
+		String msg=in.nextLine(); 
+		int len= msg.length(); 
+		System.out.println("Enter the shift: "); 
+		int disp=in.nextInt(); 
+		String s=""; 
+		for(int i=0; i< len; i++){ 
+			if(msg.charAt(i)==' ') 
+				s+=' '; 
+			else{ 
+
+			char ch= (char) (msg.charAt(i) + disp); 
+		 
+			if(ch>'z') 
+				s+= (char) (msg.charAt(i) -  (26 - disp)); 
+			else 
+				s+=(char) (msg.charAt(i) + disp); 
+			} 
+		} 
+
+		System.out.println("The encrypted message is: " +s); 
+		System.out.println("Enter the string to decrypt: "); 
+		Scanner in1 = new Scanner(System.in); 
+		String enc=in1.nextLine(); 
+		int len1=enc.length(); 
+		String plain=""; 
+		for(int j=0; j< len1; j++){ 
+			if(enc.charAt(j)==' ') 
+				plain+=' '; 
+			else{ 
+			char cha= (char) (enc.charAt(j) - disp); 
+			if(cha < 'a') 
+				plain+= (char) (enc.charAt(j) +  (26 + disp)); 
+			else 
+				plain+=cha; 
+			} 
+		} 
+		System.out.println("The deciphered message is: " +plain); 
+	} 
+}
