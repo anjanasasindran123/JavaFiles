@@ -1,0 +1,83 @@
+/*1. Develop a class StringDemo that demonstrates all the string operations:‐ 
+a. Comparison 
+b. Length of string 
+c. Number of words. 
+d. Uppercase conversion 
+e. Check if a particular sequence of characters exists. 
+f. Replace a character with another 
+g. Check if a string is suffixed or prefixed with a value 
+
+*/
+
+/* 
+ * To change this template, choose Tools | Templates 
+ * and open the template in the editor. 
+ */ 
+package stringdemo; 
+
+import java.util.Locale; 
+import java.util.Scanner; 
+
+
+public class StringDemo { 
+
+    public static void main(String[] args) { 
+        String s1,s2; 
+        Scanner in=new Scanner(System.in); 
+        System.out.println("Enter the string1:"); 
+        s1=in.nextLine(); 
+        System.out.println("Enter the string2:"); 
+        s2=in.nextLine(); 
+        
+        if ( s1.equals(s2) ) { 
+            System.out.println( "The strings are equal "); 
+        } else { 
+            System.out.println( "The strings are unequal " ); 
+        } 
+        
+        System.out.println( "The length of "+s1 +" is: "+ s1.length() ); 
+        System.out.println( "The length of "+s2 +" is: "+ s2.length() ); 
+        System.out.println( " The number of words in string 1 is " + countWords(s1) ); 
+        System.out.println( " The number of words in string 2 is " + countWords(s2) ); 
+        
+        System.out.println( " The Uppercased string1 is :"+ s1.toUpperCase()); 
+        System.out.println( " The Uppercased string2 is :"+ s2.toUpperCase()); 
+        System.out.println( " Enter the pattern :" ); 
+        String regex = in.nextLine(); 
+        if ( s1.contains(regex) ) { 
+            System.out.println( "The pattern exists in the string1" ); 
+        } 
+     
+            
+        String old, newc; 
+        System.out.println( " Enter the character to be replaced :" ); 
+        old = in.nextLine(); 
+        
+        System.out.println( " Enter the character to replace it with :" ); 
+        newc = in.nextLine(); 
+   
+        System.out.println(" The new string is :"+  s1.replace( old, newc) ); 
+        
+        String pre, suff; 
+        System.out.println( " Enter the prefix :" ); 
+        pre = in.nextLine(); 
+        System.out.println( " Enter the suffix :" ); 
+        suff = in.nextLine(); 
+       
+        if ( s1.startsWith(pre) ) { 
+            System.out.println( " Yes. " +s1+" starts with "+pre ); 
+        } 
+        if ( s1.endsWith(suff) ) { 
+            System.out.println( "Yes. "+s1+ " ends with " + suff ); 
+        } 
+        
+        
+        
+    } 
+    public static int countWords( String s1 ) { 
+            String[] splitString = s1.split(" "); 
+            return splitString.length; 
+        } 
+}
+
+
