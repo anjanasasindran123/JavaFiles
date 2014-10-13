@@ -1,0 +1,18 @@
+
+/* Author-- Anjana S*/
+
+import java.util.Scanner;
+import java.util.Date;
+ 
+public class Explore {
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Date date = new Date(2014,9,5);
+        Date date1 = new Date(2014, 9,6);
+      long  milli =   date.getTime();
+      System.out.println("Number of milliseconds since jan 1 ,1970 : " + milli);
+     if( date.before(date1)){
+         System.out.println(date.toString()+ " comes before "+ date1.toString());
+   }
+    }
+
