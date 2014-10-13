@@ -1,0 +1,27 @@
+/*4. Write a program to generate the Pascal’s triangle up to the degree ‘n’*/ 
+
+import java.util.Scanner; 
+public class pascal{ 
+	public static void main(String args[]){ 
+		int maxRows; 
+		System.out.println("Enter the number of rows: "); 
+		Scanner in =new Scanner (System.in); 
+		maxRows=in.nextInt(); 
+		int r ,num; 
+		for(int i=0;i<=maxRows;i++){ 
+			num=1; 
+			r=i+1; 
+			for(int j=maxRows -i; j> 0;j--){ 
+				System.out.print(" "); 
+			} 
+			for(int col=0;col<=i;col++){ 
+				if(col> 0){ 
+					num =num *( r - col )/ col; 
+				} 
+				System.out.print(num  + " "); 
+			} 
+			System.out.println(); 
+		} 
+	} 
+}
+
